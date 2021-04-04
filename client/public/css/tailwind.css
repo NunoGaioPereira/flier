@@ -4,6 +4,11 @@
 	font-family: Zona Pro, Montserrat, sans-serif;
 }
 
+.arrow-right {
+	transition-duration: 0.3s;
+    transition-property: transform;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
