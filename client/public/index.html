@@ -84,7 +84,87 @@
 			<h1 class="text-3xl text-dark-gray font-semibold">Tasks</h1>
 			<p class="text-lg text-gray-400">Inbox</p>
 			<div class="pt-4 px-4 w-full max-w-xl">
+
 				<div>
+					<li class="relative list-none" x-data="{selected:null}">
+						<button type="button" class="w-full focus:outline-none" @click="selected !== 1 ? selected = 1 : selected = null">
+							<div class="task w-full flex py-4">
+								<label class="inline-flex items-center mt-3 cursor-pointer">
+					                <img src="./img/arrow_right.png" class="arrow-right h-4" data-status="open" x-bind:style="selected == 1 ? 'transform: rotate(90deg)' : ''">
+					                <p class="ml-3 text-dark-gray font-semibold text-gray-800 cursor-pointer">Portfolio</p>
+					            </label>
+							</div>
+						</button>
+						<div class="border-b-2 ml-6 w-full border-line-gray"></div>
+
+						<div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+							<div class="task w-full flex border-b border-gray-300 py-4 ml-6">
+								<label class="inline-flex items-center mt-3 cursor-pointer">
+					                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
+					                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
+					            </label>
+							</div>
+							<div class="task w-full flex border-b border-gray-300 py-4 ml-6">
+								<label class="inline-flex items-center mt-3 cursor-pointer">
+					                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
+					                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
+					            </label>
+							</div>
+							<div class="task w-full flex border-b border-gray-300 py-4 ml-6">
+								<label class="inline-flex items-center mt-3 cursor-pointer">
+					                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer" checked>
+					                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
+					            </label>
+							</div>
+						</div>
+					</li>
+					<li class="relative list-none" x-data="{selected:null}">
+						<button type="button" class="w-full focus:outline-none" @click="selected !== 1 ? selected = 1 : selected = null">
+							<div class="task w-full flex py-4">
+								<label class="inline-flex items-center mt-3 cursor-pointer">
+					                <img src="./img/arrow_right.png" class="arrow-right h-4" data-status="open" x-bind:style="selected == 1 ? 'transform: rotate(90deg)' : ''">
+					                <p class="ml-3 text-dark-gray font-semibold text-gray-800 cursor-pointer">Portfolio</p>
+					            </label>
+							</div>
+						</button>
+						<div class="border-b-2 ml-6 w-full border-line-gray"></div>
+
+						<div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+							<div class="task w-full flex border-b border-gray-300 py-4 ml-6">
+								<label class="inline-flex items-center mt-3 cursor-pointer">
+					                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
+					                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
+					            </label>
+							</div>
+							<div class="task w-full flex border-b border-gray-300 py-4 ml-6">
+								<label class="inline-flex items-center mt-3 cursor-pointer">
+					                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
+					                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
+					            </label>
+							</div>
+						</div>
+					</li>
+					<div class="task w-full flex border-b border-gray-300 py-4">
+						<label class="inline-flex items-center mt-3 cursor-pointer">
+			                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
+			                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
+			            </label>
+					</div>
+					<div class="task w-full flex border-b border-gray-300 py-4">
+						<label class="inline-flex items-center mt-3 cursor-pointer">
+			                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
+			                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
+			            </label>
+					</div>
+					<div class="task w-full flex py-4">
+						<label class="inline-flex items-center mt-3 cursor-pointer">
+			                <span class="text-light-gray font-semibold cursor-pointer">+</span>
+			                <p class="ml-3 text-light-gray font-semibold cursor-pointer">Add task</p>
+			            </label>
+					</div>
+				</div>
+
+				<!-- <div>
 					<div class="task w-full flex py-4">
 						<label class="inline-flex items-center mt-3 cursor-pointer">
 			                <img src="./img/arrow_down.png" class="w-4" data-status="open">
@@ -97,7 +177,6 @@
 							<label class="inline-flex items-center mt-3 cursor-pointer">
 				                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer" checked>
 				                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Ligar BPI</p>
-				                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-4" viewBox="0 0 512 512" xml:space="preserve"><path d="M504.502,75.496c-9.997-9.998-26.205-9.998-36.204,0L161.594,382.203L43.702,264.311c-9.997-9.998-26.205-9.997-36.204,0    c-9.998,9.997-9.998,26.205,0,36.203l135.994,135.992c9.994,9.997,26.214,9.99,36.204,0L504.502,111.7    C514.5,101.703,514.499,85.494,504.502,75.496z"/></svg> -->
 				            </label>
 						</div>
 						<div class="task w-full flex border-b border-gray-300 py-4 ml-6">
@@ -108,57 +187,14 @@
 						</div>
 						<div class="task w-full flex py-4">
 							<label class="inline-flex items-center mt-3 cursor-pointer">
-				                <!-- <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer"> -->
 				                <span class="text-light-gray font-semibold cursor-pointer">+</span>
 				                <p class="ml-3 text-light-gray font-semibold cursor-pointer">Add task</p>
 				            </label>
 						</div>
 					</div>
-				</div>
-
+				</div> -->
 			</div>
 		</div>
 	</div>
-
-
-  <div class="ml-8 pb-12">
-<div class="bg-white max-w-xl mx-auto">			
-		<li class="relative list-none" x-data="{selected:null}">
-			<button type="button" class="w-full focus:outline-none" @click="selected !== 1 ? selected = 1 : selected = null">
-				<div class="task w-full flex py-4">
-					<label class="inline-flex items-center mt-3 cursor-pointer">
-		                <img src="./img/arrow_right.png" class="arrow-right h-4" data-status="open" x-bind:style="selected == 1 ? 'transform: rotate(90deg)' : ''">
-		                <p class="ml-3 text-dark-gray font-semibold text-gray-800 cursor-pointer">Portfolio</p>
-		            </label>
-				</div>
-			</button>
-
-			<div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
-				<div class="task w-full flex border-b border-gray-300 py-4 ml-6">
-					<label class="inline-flex items-center mt-3 cursor-pointer">
-		                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
-		                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
-		            </label>
-				</div>
-				<div class="task w-full flex border-b border-gray-300 py-4 ml-6">
-					<label class="inline-flex items-center mt-3 cursor-pointer">
-		                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
-		                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
-		            </label>
-				</div>
-				<div class="task w-full flex border-b border-gray-300 py-4 ml-6">
-					<label class="inline-flex items-center mt-3 cursor-pointer">
-		                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded-full h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer" checked>
-		                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
-		            </label>
-				</div>
-			</div>
-
-		</li>
-	</div>
-  </div>
-
-
-
 </body>
 </html>
