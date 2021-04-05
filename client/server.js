@@ -3,12 +3,20 @@ const express = require('express');
 
 const app = express();
 app.use(express.json()); // Allow to use body parser
-app.use(express.static('public'))
+// app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'));
 //app.use('/static', express.static(path.join(__dirname, 'public')))
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/public'));
 
 
 app.get('/', (req, res) => {
-	res.send('T');
+	res.render('index');
+})
+
+app.get('/login', (req, res) => {
+	res.render('login');
 })
 
 const PORT = process.env.PORT || 5000;
