@@ -1,0 +1,53 @@
+<div x-data="component()">
+	<div class="fixed sm:hidden w-full flex items-center justify-between bg-white z-30 py-4 px-5 ">
+		<a href="/home">
+			<img class="w-10" src="./img/logo_dark.png">
+		</a>
+		<a href="#" @click="open()">
+			<img class="w-5" src="./img/hamburguer_dark.png">
+		</a>
+	</div>
+	<div x-show="mobileNav"
+		 x-transition:enter="transition-opacity ease-in duration-300"
+    	 x-transition:enter-start="opacity-0"
+    	 x-transition:enter-end="opacity-70"
+    	 x-transition:leave="transition ease-in-out duration-300"
+    	 x-transition:leave-start="opacity-70"
+         x-transition:leave-end="opacity-0"
+         @click="closeMobileNav()" 
+         class="h-full w-full filter blur-3xl opacity-70 bg-gray-800 fixed z-40"></div>
+	<div x-show="mobileNav"
+		 x-transition:enter="transition-transform transition-opacity ease-out duration-300"
+    	 x-transition:enter-start="opacity-0 transform translate-x-20"
+    	 x-transition:enter-end="opacity-100 transform translate-y-0"
+    	 x-transition:leave="transition ease-in duration-300"
+         x-transition:leave-end="opacity-0 transform translate-x-20" 
+         class="h-full bg-white w-60 fixed top-0 -right-0 z-50 p-4">
+		<div class="flex justify-between items-center">
+			<p class="text-xl font-semibold">Menu</p>
+			<img @click="mobileNav = false" class="w-2 cursor-pointer" src="./img/arrow_right.png">
+		</div>
+		<div>
+			<ul class="mt-4">
+				<li><a href="/" class="p-3 block rounded hover:bg-gray-200 transition duration-300">Home</a></li>
+				<li><a href="/tasks" class="p-3 block rounded hover:bg-gray-200 transition duration-300">Tasks</a></li>
+				<li><a href="/habits" class="p-3 block rounded hover:bg-gray-200 transition duration-300">Habits</a></li>
+				<li><a href="/rituals" class="p-3 block rounded hover:bg-gray-200 transition duration-300">Rituals</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script>
+	function component() {
+		return {
+			mobileNav: false,
+			closeMobileNav() {
+				this.mobileNav = false;
+			},
+			open() {
+				this.mobileNav = true;
+			}
+		}
+	}
+</script>

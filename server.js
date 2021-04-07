@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
 	res.render('index', { pageTitle: 'Home' });
 })
 
+app.get('/tasks', (req, res) => {
+	res.render('tasks',  { moment: moment, pageTitle: 'Tasks' });
+})
+
 app.get('/rituals', (req, res) => {
 	res.render('rituals',  { moment: moment, pageTitle: 'Rituals' });
 })
