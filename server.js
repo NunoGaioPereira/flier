@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 
+const moment = require('moment');
+
 const app = express();
 app.use(express.json()); // Allow to use body parser
 // app.use(express.static('public'))
@@ -16,7 +18,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/rituals', (req, res) => {
-	res.render('rituals');
+	res.render('rituals',  { moment: moment });
+})
+
+app.get('/habits', (req, res) => {
+	res.render('habits',  { moment: moment });
 })
 
 app.get('/login', (req, res) => {
