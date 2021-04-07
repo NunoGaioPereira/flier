@@ -14,23 +14,23 @@ app.set('views', path.join(__dirname, '/public'));
 
 
 app.get('/', (req, res) => {
-	res.render('index');
+	res.render('index', { pageTitle: 'Home' });
 })
 
 app.get('/rituals', (req, res) => {
-	res.render('rituals',  { moment: moment });
+	res.render('rituals',  { moment: moment, pageTitle: 'Rituals' });
 })
 
 app.get('/habits', (req, res) => {
-	res.render('habits',  { moment: moment });
+	res.render('habits',  { moment: moment, pageTitle: 'Habits' });
 })
 
 app.get('/login', (req, res) => {
-	res.render('login');
+	res.render('login', { pageTitle: 'Login' });
 })
 
 app.get('/register', (req, res) => {
-	res.render('register');
+	res.render('register', { pageTitle: 'Register' });
 })
 
 const PORT = process.env.PORT || 5000;
