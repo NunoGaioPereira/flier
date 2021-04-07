@@ -8,6 +8,15 @@ module.exports = {
 	    	"dark-gray": '#333333',
 	    	"medium-gray": '#808080',
 	    	"line-gray": '#e6e6e6',
+	    	"health": '#ff4d6f',
+	    	"emotions": '#fea426',
+	    	"relationships": '#fed326',
+	    	"lifestyle": '#7bdf56',
+	    	"growth": '#56dfca',
+	    	"mission": '#3da5e6',
+	    	"prosperity": '#5368e1',
+	    	"contribution": '#ae66d8',
+	    	"spirituality": '#e06ad5',
 	    },
 	    customForms: theme => ({
 	      default: {
