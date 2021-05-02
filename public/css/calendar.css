@@ -109,7 +109,7 @@ body {
     padding: 3px;
     position: relative;
     cursor: pointer;
-    animation: to-top 1s forwards;
+    animation: to-top 0.3s forwards;
 
     transition: background 0.2s ease-in-out;
     border-radius: 50%;
@@ -204,6 +204,11 @@ body {
     background-color: var(--black);
     color: var(--white);
     border-radius: 50%;
+}
+
+.calendar-days div.selected-date {
+    background-color: #3b82f6;
+    color: var(--white);
 }
 
 .calendar-days div.curr-date span {
@@ -322,11 +327,11 @@ body {
 
 @keyframes to-top {
     0% {
-        transform: translateY(100%);
+        transform: translateX(100%);
         opacity: 0;
     }
     100% {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
     }
 }

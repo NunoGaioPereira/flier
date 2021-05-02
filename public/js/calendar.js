@@ -35,7 +35,6 @@ generateCalendar = (month, year) => {
         let day = document.createElement('div');
         if (i >= first_day.getDay()) {
             day.classList.add('calendar-day-hover')
-            day.classList.add('has-day')
             day.innerHTML = i - first_day.getDay() + 1
             day.innerHTML += `<span></span>
                             <span></span>
@@ -43,6 +42,9 @@ generateCalendar = (month, year) => {
                             <span></span>`
             if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
                 day.classList.add('curr-date')
+            }
+            if (i == 24) {
+            	day.classList.add('selected-date');
             }
         }
         calendar_days.appendChild(day)
