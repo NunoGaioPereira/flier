@@ -11,10 +11,10 @@ const RitualDaySchema = new mongoose.Schema({
     contribution: { type: Boolean, default: false },
     spirituality: { type: Boolean, default: false },
     day: { type: Date, default: Date.now },
-    user: {
+    /*user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    }*/
 });
 
-module.exports = mongoose.model('RitualDay', TodoSchema);
+module.exports = mongoose.model('RitualDay', RitualDaySchema);
