@@ -10,6 +10,7 @@ dotenv.config({ path: './config/config.env' });
 connectDB();
 
 const rituals = require('./routes/rituals');
+const tasks = require('./routes/tasks');
 
 const app = express();
 app.use(express.json()); // Allow to use body parser
@@ -46,6 +47,7 @@ app.get('/register', (req, res) => {
 })
 
 app.use('/api/v1/rituals', rituals);
+app.use('/api/v1/tasks', tasks);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));

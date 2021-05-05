@@ -91,7 +91,10 @@
 					<div class="task w-full flex py-4">
 						<label class="inline-flex items-center cursor-pointer">
 			                <span class="text-light-gray font-semibold cursor-pointer">+</span>
-			                <input type="text" name="new_task" id="addTask" placeholder="Add task" class="ml-3 text-medium-gray placeholder-light-gray focus:outline-none font-semibold cursor-pointer">
+			                <form action="/api/v1/tasks/" method="POST">
+			                	<input type="text" name="new_task" id="addTask" placeholder="Add task" class="ml-3 text-medium-gray placeholder-light-gray focus:outline-none font-semibold cursor-pointer">
+			                	<input type="submit" value="Create">
+			                </form>
 			                <!-- <p class="ml-3 text-light-gray font-semibold cursor-pointer" contenteditable="true">Add task</p> -->
 			            </label>
 					</div>

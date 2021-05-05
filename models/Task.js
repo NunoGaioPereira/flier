@@ -1,23 +1,27 @@
 const mongoose = require('mongoose');
 
-const TodoSchema = new mongoose.Schema({
+const TaskSchema = new mongoose.Schema({
     text: {
         type: String,
         trim: true,
         required: [true, 'Please add some text']
     },
-    project: {
+    /*project: {
         type: String,
-        required: true, 'Please add a positive or negative number']
+        required: true, ['Please add a positive or negative number']
+    },*/
+    createdAt: {
+        type: Date,
+        default: Date.now
     },
     dueDate: {
         type: Date,
         default: null
     },
-    user: {
+    /*user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    }*/
 });
 
-module.exports = mongoose.model('Todo', TodoSchema);
+module.exports = mongoose.model('Task', TaskSchema);
