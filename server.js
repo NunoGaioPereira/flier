@@ -30,35 +30,17 @@ app.get('/', (req, res) => {
 	res.render('index', { pageTitle: 'Home' });
 })
 
-const { getTasks } = require('./controllers/tasks');
 
-async function axiosTest() {
-      try {
-        const {data:response} = await axios.get('http://localhost:5000/api/v1/tasks') //use data destructuring to get data from the promise object
-        return response
-      }
-
-      catch (error) {
-        console.log(error);
-      }
-    }
+const Task = require('./models/Task');
 
 app.get('/tasks', (req, res) => {
-	const tasks = axiosTest();
-	// axios.get('http://localhost:5000/api/v1/tasks')
-	//   .then(response => {
-	//   	const ab = response.data;
-	//     //console.log(tasks);
-	//     //console.log(response.data.explanation);
-	//   })
-	//   .catch(error => {
-	//     console.log(error);
-	//   });
+	//const tasks = axiosTest();
 
-	  console.log("Type of: " + typeof(tasks))
-	// const tasks = await getTasks();
-	console.log(tasks);
-	res.render('tasks',  { moment: moment, pageTitle: 'Tasks', tasks: tasks});
+	Task.find({}, (err, tasks) => {
+		res.render('tasks',  { moment: moment, pageTitle: 'Tasks', tasks: tasks});
+	});
+	
+	//console.log(err);
 })
 
 app.get('/rituals', (req, res) => {

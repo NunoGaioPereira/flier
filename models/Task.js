@@ -6,6 +6,10 @@ const TaskSchema = new mongoose.Schema({
         trim: true,
         required: [true, 'Please add some text']
     },
+    completed: {
+        type: Boolean,
+        default: false
+    },
     /*project: {
         type: String,
         required: true, ['Please add a positive or negative number']
