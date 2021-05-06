@@ -4,16 +4,20 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
 const moment = require('moment');
+const axios = require('axios');
+
 
 dotenv.config({ path: './config/config.env' });
 
 connectDB();
 
+const app = express();
+app.use(express.json()); // Allow to use body parser
+app.use(express.urlencoded());
+
 const rituals = require('./routes/rituals');
 const tasks = require('./routes/tasks');
 
-const app = express();
-app.use(express.json()); // Allow to use body parser
 // app.use(express.static('public'))
 app.use(express.static(__dirname + '/public'));
 //app.use('/static', express.static(path.join(__dirname, 'public')))
@@ -26,8 +30,35 @@ app.get('/', (req, res) => {
 	res.render('index', { pageTitle: 'Home' });
 })
 
+const { getTasks } = require('./controllers/tasks');
+
+async function axiosTest() {
+      try {
+        const {data:response} = await axios.get('http://localhost:5000/api/v1/tasks') //use data destructuring to get data from the promise object
+        return response
+      }
+
+      catch (error) {
+        console.log(error);
+      }
+    }
+
 app.get('/tasks', (req, res) => {
-	res.render('tasks',  { moment: moment, pageTitle: 'Tasks' });
+	const tasks = axiosTest();
+	// axios.get('http://localhost:5000/api/v1/tasks')
+	//   .then(response => {
+	//   	const ab = response.data;
+	//     //console.log(tasks);
+	//     //console.log(response.data.explanation);
+	//   })
+	//   .catch(error => {
+	//     console.log(error);
+	//   });
+
+	  console.log("Type of: " + typeof(tasks))
+	// const tasks = await getTasks();
+	console.log(tasks);
+	res.render('tasks',  { moment: moment, pageTitle: 'Tasks', tasks: tasks});
 })
 
 app.get('/rituals', (req, res) => {

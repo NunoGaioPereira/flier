@@ -88,11 +88,22 @@
 			                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
 			            </label>
 					</div>
+
+					<% tasks.forEach(task => { %>
+						<div class="task w-full flex border-b border-gray-300 py-4">
+							<label class="inline-flex items-center cursor-pointer">
+				                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
+				                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer"><%= task.task %></p>
+				            </label>
+						</div>
+					<% }) %>
+
+
 					<div class="task w-full flex py-4">
 						<label class="inline-flex items-center cursor-pointer">
 			                <span class="text-light-gray font-semibold cursor-pointer">+</span>
 			                <form action="/api/v1/tasks/" method="POST">
-			                	<input type="text" name="new_task" id="addTask" placeholder="Add task" class="ml-3 text-medium-gray placeholder-light-gray focus:outline-none font-semibold cursor-pointer">
+			                	<input type="text" name="task" id="addTask" placeholder="Add task" class="ml-3 text-medium-gray placeholder-light-gray focus:outline-none font-semibold cursor-pointer">
 			                	<input type="submit" value="Create">
 			                </form>
 			                <!-- <p class="ml-3 text-light-gray font-semibold cursor-pointer" contenteditable="true">Add task</p> -->

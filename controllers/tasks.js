@@ -7,11 +7,11 @@ const RitualDay = require('../models/RitualDay');
 // @access Public
 exports.getTasks = async (req, res, next) => {
 	try {
-		const task = await Task.find();
+		const Tasks = await Task.find();
 
 		return res.status(200).json({
 			success: true,
-			data: task
+			data: Tasks
 		});
 	}
 	catch (err) {
@@ -28,14 +28,20 @@ exports.getTasks = async (req, res, next) => {
 // @access Public
 exports.createTask = async (req, res, next) => {
 	try {
-		const Task = await Task.find();
+		const { task } = req.body;
 
-		return res.status(200).json({
-			success: true,
-			data: Task
-		});
+		const newTask = await Task.create(req.body);
+		// const newTask = new Task({ task });
+
+		//res.redirect('/tasks');
+
+		return res.status(201).json({
+            success: true,
+            data: newTask
+        });
 	}
 	catch (err) {
+		console.log(err);
 		return res.send(500).json({
 			success: false,
 			error: 'Server Error'
