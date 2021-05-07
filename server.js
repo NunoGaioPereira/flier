@@ -31,17 +31,17 @@ app.get('/', (req, res) => {
 })
 
 
-const Task = require('./models/Task');
+// const Task = require('./models/Task');
 
-app.get('/tasks', (req, res) => {
-	//const tasks = axiosTest();
+// app.get('/tasks', (req, res) => {
+// 	//const tasks = axiosTest();
 
-	Task.find({}, (err, tasks) => {
-		res.render('tasks',  { moment: moment, pageTitle: 'Tasks', tasks: tasks});
-	});
+// 	Task.find({}, (err, tasks) => {
+// 		res.render('tasks',  { moment: moment, pageTitle: 'Tasks', tasks: tasks});
+// 	});
 	
-	//console.log(err);
-})
+// 	//console.log(err);
+// })
 
 app.get('/rituals', (req, res) => {
 	res.render('rituals',  { moment: moment, pageTitle: 'Rituals' });
@@ -59,8 +59,11 @@ app.get('/register', (req, res) => {
 	res.render('register', { pageTitle: 'Register' });
 })
 
+
+app.use('/tasks', require('./routes/task'))
+
 app.use('/api/v1/rituals', rituals);
-app.use('/api/v1/tasks', tasks);
+// app.use('/api/v1/tasks', tasks);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));

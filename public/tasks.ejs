@@ -76,19 +76,6 @@
 							</div>
 						</div>
 					</li>
-					<div class="task w-full flex border-b border-gray-300 py-4">
-						<label class="inline-flex items-center cursor-pointer">
-			                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
-			                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
-			            </label>
-					</div>
-					<div class="task w-full flex border-b border-gray-300 py-4">
-						<label class="inline-flex items-center cursor-pointer">
-			                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer">
-			                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer">Finish task</p>
-			            </label>
-					</div>
-					<% var foo = "x"; %>
 					<% tasks.forEach(task => { %>
 						<div class="task w-full flex border-b border-gray-300 py-4">
 							<label class="inline-flex items-center cursor-pointer">
@@ -102,9 +89,9 @@
 					<div class="task w-full flex py-4">
 						<label class="inline-flex items-center cursor-pointer">
 			                <span class="text-light-gray font-semibold cursor-pointer">+</span>
-			                <form action="/api/v1/tasks/" method="POST">
+			                <form action="/tasks/create/" method="POST" id="new_task_form">
 			                	<input type="text" name="task" id="addTask" placeholder="Add task" class="ml-3 text-medium-gray placeholder-light-gray focus:outline-none font-semibold cursor-pointer">
-			                	<input type="submit" value="Create">
+			                	<!-- <input type="submit" value="Create"> -->
 			                </form>
 			                <!-- <p class="ml-3 text-light-gray font-semibold cursor-pointer" contenteditable="true">Add task</p> -->
 			            </label>
@@ -147,14 +134,23 @@
 	<script type="text/javascript">
 		addBtn = document.getElementById('addBtn');
 		addTask = document.getElementById('addTask');
+		taskForm = document.getElementById('new_task_form');
 		addBtn.addEventListener('click', () => {
 			if (addTask.value == '') {
 				addTask.focus();
 			}
 			else {
-				// Add task
+				taskForm.submit();
 			}
-		})
+		});
+
+		addTask.onkeydown = function(e){
+			if(e.keyCode == 13){
+				if (addTask.value == '') {
+					taskForm.submit();
+				}
+			}
+		};
 	</script>
 </body>
 </html>

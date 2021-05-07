@@ -8,11 +8,11 @@ const RitualDay = require('../models/RitualDay');
 exports.getTasks = async (req, res, next) => {
 	try {
 		const Tasks = await Task.find();
-		res.redirect('/tasks');
-		// return res.status(200).json({
-		// 	success: true,
-		// 	data: Tasks
-		// });
+		
+		return res.status(200).json({
+			success: true,
+			data: Tasks
+		});
 	}
 	catch (err) {
 		console.log(err)
