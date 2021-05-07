@@ -81,6 +81,7 @@
 							<label class="inline-flex items-center cursor-pointer">
 				                <input type="checkbox" class="form-checkbox border-2 border-line-gray rounded h-5 w-5 text-sm font-normal text-dark-gray cursor-pointer" <% if (task.completed) { %> checked <% } %> >
 				                <p class="ml-3 text-medium-gray font-semibold text-gray-800 cursor-pointer"><%= task.task %></p>
+				                <a href="/tasks/delete/<%= task._id %>">delete</>
 				            </label>
 						</div>
 					<% }) %>

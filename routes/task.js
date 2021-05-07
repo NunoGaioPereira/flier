@@ -33,4 +33,29 @@ router.post('/create', async (req, res) => {
 	}
 });
 
+// @desc   Delete task day
+// @route  DELETE /api/v1/tasks/:id
+// @access Public
+router.get('/delete/:id', async (req, res, next) => {
+	try {
+        const task = await Task.findById(req.params.id);
+
+        if(!task) {
+            return res.status(404).json({
+                success: false,
+                error: 'No task found'
+            });
+        }
+
+        await task.remove();
+        res.redirect('/tasks');
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            error: 'Server error'
+        });
+    }
+});
+
+
 module.exports = router;
