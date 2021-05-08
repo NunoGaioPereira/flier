@@ -7,8 +7,6 @@ router.get('/', async (req, res) => {
 	try {
 		const tasks = await Task.find();
 		
-		console.log("In heeeeeeeeeere--------------");
-		console.log(tasks);
 		res.render('tasks',  { moment: moment, pageTitle: 'Tasks', tasks: tasks});
 	}
 	catch (err) {
@@ -18,8 +16,6 @@ router.get('/', async (req, res) => {
 			error: 'Got no tasks'
 		});
 	}
-	
-	console.log("At the end------------");
 });
 
 // @desc   Create task day
