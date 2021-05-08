@@ -6,9 +6,18 @@ const Task = require('../models/Task');
 router.get('/', (req, res) => {
 	//const tasks = axiosTest();
 
-	Task.find({}, (err, tasks) => {
-		res.render('tasks',  { moment: moment, pageTitle: 'Tasks', tasks: tasks});
-	});
+	try {
+		Task.find({}, (err, tasks) => {
+			res.render('tasks',  { moment: moment, pageTitle: 'Tasks', tasks: tasks});
+		});
+	}
+	catch (err) {
+		console.log(err);
+		return res.send(500).json({
+			success: false,
+			error: 'COuld not load tasks'
+		});
+	}
 	
 	//console.log(err);
 });
