@@ -7,7 +7,7 @@ const moment = require('moment');
 const axios = require('axios');
 
 
-dotenv.config({ path: './config/config.env' });
+//dotenv.config({ path: './config/config.env' });
 
 connectDB();
 

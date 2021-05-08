@@ -33,6 +33,38 @@ router.post('/create', async (req, res) => {
 	}
 });
 
+// @desc   Update task
+// @route  POST /tasks
+// @access Public
+router.get('/update/:id', async (req, res) => {
+	try {
+        const task = await Task.findById(req.params.id);
+
+        if(!task) {
+            return res.status(404).json({
+                success: false,
+                error: 'No task found'
+            });
+        }
+
+        if (!task.completed) {
+        	task.completed = true;
+        	await task.save();
+        } 
+        else {
+        	task.completed = false;
+        	await task.save();	
+        }
+        
+        res.redirect('/tasks');
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            error: 'Server error'
+        });
+    }
+});
+
 // @desc   Delete task day
 // @route  DELETE /api/v1/tasks/:id
 // @access Public

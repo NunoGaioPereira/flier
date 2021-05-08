@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGO_URI, {
+        const conn = await mongoose.connect('mongodb+srv://mongo_nuno:epSfGvXbFvLpJUKb@flier.ehw8s.mongodb.net/flier?retryWrites=true&w=majority', {
             useNewUrlParser: true,
             useCreateIndex: true,
             useUnifiedTopology: true
