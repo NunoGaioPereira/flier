@@ -9,7 +9,7 @@ const axios = require('axios');
 
 //dotenv.config({ path: './config/config.env' });
 
-connectDB();
+// connectDB();
 
 const app = express();
 app.use(express.json()); // Allow to use body parser
@@ -60,9 +60,9 @@ app.get('/register', (req, res) => {
 })
 
 
-app.use('/tasks', require('./routes/task'))
+// app.use('/tasks', require('./routes/task'))
 
-app.use('/api/v1/rituals', rituals);
+// app.use('/api/v1/rituals', rituals);
 // app.use('/api/v1/tasks', tasks);
 
 const PORT = process.env.PORT || 5000;
