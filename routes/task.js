@@ -8,6 +8,8 @@ router.get('/', (req, res) => {
 
 	try {
 		Task.find({}, (err, tasks) => {
+			console.log("In heeeeeeeeeere--------------");
+			console.log(tasks);
 			res.render('tasks',  { moment: moment, pageTitle: 'Tasks', tasks: tasks});
 		});
 	}
@@ -15,11 +17,11 @@ router.get('/', (req, res) => {
 		console.log(err);
 		return res.send(500).json({
 			success: false,
-			error: 'COuld not load tasks'
+			error: 'Could not load tasks'
 		});
 	}
 	
-	//console.log(err);
+	console.log("At the end------------");
 });
 
 // @desc   Create task day
