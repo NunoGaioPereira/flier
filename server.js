@@ -9,7 +9,7 @@ const axios = require('axios');
 
 //dotenv.config({ path: './config/config.env' });
 
-// connectDB();
+connectDB();
 
 const app = express();
 app.use(express.json()); // Allow to use body parser
