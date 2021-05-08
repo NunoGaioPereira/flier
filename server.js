@@ -60,9 +60,9 @@ app.get('/register', (req, res) => {
 })
 
 
-// app.use('/tasks', require('./routes/task'))
+app.use('/tasks', require('./routes/task'))
 
-// app.use('/api/v1/rituals', rituals);
+app.use('/api/v1/rituals', rituals);
 // app.use('/api/v1/tasks', tasks);
 
 const PORT = process.env.PORT || 5000;
